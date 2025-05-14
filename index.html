@@ -1,11 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="CSS/bootstrap.min.css" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body data-bs-theme="dark">
+    <header></header>
+    <main>
+      <section class="py-5 bg-body">
+        <div class="container">
+          <h2 class="text-center mb-4">📝 Agregar Tareas</h2>
+          <form id="tareaForm" class="row g-3 justify-content-center">
+            <div class="col-md-6">
+              <input
+                type="text"
+                id="tareaInput"
+                class="form-control"
+                placeholder="Agregar una nueva tarea..."
+              />
+            </div>
+            <div class="col-md-auto">
+              <button type="submit" class="btn btn-success">
+                Agregar tarea
+              </button>
+            </div>
+            <div class="col-md-auto">
+              <button type="button" id="btnBorrar" class="btn btn-danger">
+                Borrar tarea
+              </button>
+            </div>
+            <div class="col-md-auto">
+              <button type="button" id="btnBorrarTodo" class="btn btn-danger">
+                Borrar todo
+              </button>
+            </div>
+          </form>
+
+          <ol
+            id="listaTareas"
+            class="row row-cols-1 row-cols-md-3 g-3 mt-4"
+          ></ol>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+    <script src="JS/bootstrap.min.js"></script>
+    <script src="JS/apps.js"></script>
+  </body>
 </html>
