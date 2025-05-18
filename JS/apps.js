@@ -6,18 +6,27 @@ const lista = (e) => {
     } else {
         const li = document.createElement("li");
         li.textContent = tarea;
+        const btn = document.createElement('button')
+        btn.textContent = 'Borrar';
+        btn.addEventListener('click', () => {
+            li.remove()
+        })
+        btn.classList.add('btn', 'btn-danger','ms-5')
+        li.appendChild(btn)
         div.appendChild(li);
         input.value = "";
     }
 }
 
-const borrarTarea = () => {
-    if (div.children.length > 0) {
-        div.removeChild(div.lastElementChild);
-    } else {
-        alert("No hay tareas para borrar");
-    }
-}
+
+
+// const borrarTarea = () => {
+//     if (div.children.length > 0) {
+//         div.removeChild(div.lastElementChild);
+//     } else {
+//         alert("No hay tareas para borrar");
+//     }
+// }
 
 const vaciar= () => {
     ol.innerHTML = "";
@@ -31,5 +40,5 @@ const borrarTodo = document.getElementById("btnBorrarTodo");
 const ol = document.querySelector("ol");
 
 form.addEventListener("submit", lista)
-borrar.addEventListener("click", borrarTarea);
+// borrar.addEventListener("click", btn);
 borrarTodo.addEventListener("click", vaciar);
