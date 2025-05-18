@@ -1,36 +1,37 @@
 const lista = (e) => {
-    e.preventDefault();
-    const tarea = input.value;
-    if (tarea === "") {
-        alert("No puedes agregar una tarea vacía");
-    } else {
-        const li = document.createElement("li");
-        li.textContent = tarea;
-        const btn = document.createElement('button')
-        btn.textContent = 'Borrar';
-        btn.addEventListener('click', () => {
-            li.remove()
-        })
-        btn.classList.add('btn', 'btn-danger','ms-5')
-        li.appendChild(btn)
-        div.appendChild(li);
-        input.value = "";
-    }
+  e.preventDefault();
+  const tarea = input.value;
+  if (tarea === "") {
+    alert("No puedes agregar una tarea vacía");
+  } else {
+    const li = document.createElement("li");
+    li.textContent = tarea;
+    li.classList.add(
+      "list-group-item",
+      "d-flex",
+      "justify-content-between",
+      "align-items-center",
+      "mt-3"
+    );
+
+    const btn = btnBorrar(li);
+    li.appendChild(btn)
+    div.appendChild(li);
+    input.value = "";
+  }
+};
+
+const btnBorrar = (li) =>{
+    const btnEliminar = document.createElement('button')
+    btnEliminar.textContent = '🗑️'
+    btnEliminar.classList.add('btn','btn-danger', 'btn-md')
+    btnEliminar.addEventListener('click',() => li.remove());
+    return btnEliminar
 }
 
-
-
-// const borrarTarea = () => {
-//     if (div.children.length > 0) {
-//         div.removeChild(div.lastElementChild);
-//     } else {
-//         alert("No hay tareas para borrar");
-//     }
-// }
-
-const vaciar= () => {
-    ol.innerHTML = "";
-}
+const vaciar = () => {
+  ol.innerHTML = "";
+};
 
 const form = document.getElementById("tareaForm");
 const input = document.querySelector("#tareaInput");
@@ -39,6 +40,16 @@ const borrar = document.getElementById("btnBorrar");
 const borrarTodo = document.getElementById("btnBorrarTodo");
 const ol = document.querySelector("ol");
 
-form.addEventListener("submit", lista)
-// borrar.addEventListener("click", btn);
+form.addEventListener("submit", lista);
 borrarTodo.addEventListener("click", vaciar);
+
+// const agregarTarea = (e) => {
+//   e.preventDefault();
+//   const inputTarea = document.getElementById("tareaInput").value;
+//   const lista = document.querySelector(".list-group");
+//   const li = document.createElement("li");
+//   li.textContent = inputTarea;
+//   li.classList.add("list-group-item");
+//   lista.appendChild(li);
+//   formularioTarea.reset();
+// };
