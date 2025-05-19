@@ -15,19 +15,19 @@ const lista = (e) => {
     );
 
     const btn = btnBorrar(li);
-    li.appendChild(btn)
+    li.appendChild(btn);
     div.appendChild(li);
     input.value = "";
   }
 };
 
-const btnBorrar = (li) =>{
-    const btnEliminar = document.createElement('button')
-    btnEliminar.textContent = '🗑️'
-    btnEliminar.classList.add('btn','btn-danger', 'btn-md')
-    btnEliminar.addEventListener('click',() => li.remove());
-    return btnEliminar
-}
+const btnBorrar = (li) => {
+  const btnEliminar = document.createElement("button");
+  btnEliminar.textContent = "🗑️";
+  btnEliminar.classList.add("btn", "btn-danger", "btn-md");
+  btnEliminar.addEventListener("click", () => li.remove());
+  return btnEliminar;
+};
 
 const vaciar = () => {
   ol.innerHTML = "";
@@ -42,14 +42,3 @@ const ol = document.querySelector("ol");
 
 form.addEventListener("submit", lista);
 borrarTodo.addEventListener("click", vaciar);
-
-// const agregarTarea = (e) => {
-//   e.preventDefault();
-//   const inputTarea = document.getElementById("tareaInput").value;
-//   const lista = document.querySelector(".list-group");
-//   const li = document.createElement("li");
-//   li.textContent = inputTarea;
-//   li.classList.add("list-group-item");
-//   lista.appendChild(li);
-//   formularioTarea.reset();
-// };
